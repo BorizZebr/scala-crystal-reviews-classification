@@ -1,13 +1,15 @@
-import org.apache.spark.{SparkConf, SparkContext}
+package com.zebrosoft
+
+import org.apache.spark.SparkConf
 import org.apache.spark.ml.feature.Word2Vec
 import org.apache.spark.ml.linalg.Vector
-import org.apache.spark.sql.{Row, SparkSession}
 import org.apache.spark.sql.types.{ArrayType, StringType, StructField, StructType}
+import org.apache.spark.sql.{Row, SparkSession}
 
 /**
   * Created by borisbondarenko on 30.08.16.
   */
-object TokenizationPokeAround extends App {
+object Word2VecPokeAround extends App {
 
   val conf = new SparkConf()
     .setMaster("local[2]")
@@ -34,7 +36,8 @@ object TokenizationPokeAround extends App {
 
   val result = model.transform(documentDF)
   result.collect().foreach { case Row(text: Seq[_], features: Vector) =>
-    println(s"Text: [${text.mkString(", ")}] => \nVector: $features\n") }
+    println(s"Text: [${text.mkString(", ")}] => \nVector: $features\n")
+  }
 
   spark.stop()
 }
