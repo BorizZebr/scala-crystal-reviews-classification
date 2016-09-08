@@ -18,7 +18,6 @@ object PreprocessingPokeAround extends App {
   val bufferedSource = io.Source.fromURL(getClass.getResource("/dict.csv"))
   val dict = bufferedSource
     .getLines
-    .drop(1)
     .map(_.split("\t"))
     .map(l => l(0) -> l(1).toDouble)
     .toMap

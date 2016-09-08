@@ -11,6 +11,9 @@ lazy val `scala-crystal-reviews-classification` = (project in file("."))
 lazy val crystalDal = RootProject(uri("git://github.com/BorizZebr/scala-crystal-dal.git#master"))
 
 libraryDependencies ++= Seq(
+  // html-parsing
+  "org.jsoup" % "jsoup" % "1.9.2",
+  "commons-io" % "commons-io" % "2.5",
   // spark
   "org.apache.spark" %% "spark-mllib" % "2.0.0",
   "com.databricks" %% "spark-csv" % "1.4.0",
