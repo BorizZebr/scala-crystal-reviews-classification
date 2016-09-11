@@ -16,7 +16,6 @@ libraryDependencies ++= Seq(
   "commons-io" % "commons-io" % "2.5",
   // spark
   "org.apache.spark" %% "spark-mllib" % "2.0.0",
-  "com.databricks" %% "spark-csv" % "1.4.0",
   // database
   "com.typesafe.slick" %% "slick" % "3.1.1",
   //"mysql" % "mysql-connector-java" % "6.0.2",
