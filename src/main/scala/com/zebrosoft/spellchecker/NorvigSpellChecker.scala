@@ -1,4 +1,4 @@
-package com.zebrosoft
+package com.zebrosoft.spellchecker
 
 /**
   * Created by bbondarenko on 9/4/2016 AD.

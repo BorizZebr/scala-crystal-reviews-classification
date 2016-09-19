@@ -1,11 +1,12 @@
-package com.zebrosoft
+package com.zebrosoft.pokearounds
 
 import java.io.{File, PrintWriter}
 
+import com.zebrosoft.spellchecker.NorvigSpellChecker
 import org.apache.spark.SparkConf
 import org.apache.spark.ml.feature.StopWordsRemover
+import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.types.{ArrayType, StringType, StructField, StructType}
-import org.apache.spark.sql.{Row, SparkSession}
 
 import scala.io
 

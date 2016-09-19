@@ -14,7 +14,7 @@ import org.apache.spark.mllib.evaluation.BinaryClassificationMetrics
 /**
   * Created by borisbondarenko on 30.08.16.
   */
-object Word2VecPokeAround extends App {
+object ModelBuilderPokeAround extends App {
 
   val idxToModel: Map[Int, String] = Map(
     0 -> "speed",
@@ -44,13 +44,14 @@ object Word2VecPokeAround extends App {
   val schema = StructType(Seq(header))
   val rows = lines
     .filter(_ != "content")
-    .map(_.split("[ ,.!;:-]"))
-    .map(words => words.filterNot(_.isEmpty))
-    .map(words => words.map(_.toLowerCase))
-    .map(words => words.map(_.filter(alph)))
-    .map(words => words.filterNot(sWords.contains(_)))
-    .map(words => words.filterNot(_.isEmpty))
-    .map(a => Row(a))
+    .map(_.split("[ .,!:;\t\n]"))
+    .map(_.map(_.toLowerCase))
+    .map(_.map(_.replaceAll("[^а-яА-Я]", "").trim))
+    .map(_.filterNot(_.isEmpty))
+    .map(_.map(LuceneLematizer(_)))
+    .map(_.filterNot(sWords.contains(_)))
+    .map(_.filterNot(_.isEmpty))
+    .map(Row(_))
 
   val documentDF = spark.createDataFrame(rows, schema)
 

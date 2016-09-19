@@ -1,4 +1,4 @@
-package com.zebrosoft
+package com.zebrosoft.pokearounds
 
 import java.io.{File, PrintWriter}
 

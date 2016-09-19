@@ -1,10 +1,11 @@
-package com.zebrosoft
+package com.zebrosoft.pokearounds
+
+import java.io._
 
 import org.apache.spark.SparkConf
 import org.apache.spark.ml.feature.StopWordsRemover
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.{Row, SparkSession}
-import java.io._
 
 /**
   * Created by bbondarenko on 9/4/2016 AD.
